@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main>
+        <section class="left">
+            <h1>Search for a City: </h1>
+            <form action="post" id="form">
+                <div class="search">
+                    <label for="city-name" class="city-name"></label>
+                    <input type="text" name="city-name" id="city-name" placeholder="San Diego" required>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="Search" id="submit">
+                </div>
+            </form>
+            <div class="city"><p>Atlanta</p></div>
+            <div class="city"><p>Denver</p></div>
+            <div class="city"><p>Seattle</p></div>
+            <div class="city"><p>San Francisco</p></div>
+            <div class="city"><p>Orlando</p></div>
+            <div class="city"><p>New York</p></div>
+            <div class="city"><p>Chicago</p></div>
+            <div class="city"><p>Austin</p></div>
+            
+        </section>
+        <section class="right">
+            <div class="current-weather">
+                <h1>Atlanta (9/13/2022)</h1>
+                <p class="temp">Temp: </p>
+                <p class="wind">Wind: </p>
+                <p class="humidity">Humidity: </p>
+            </div>
+            <div class="forecast">
+                <h1>5-Day Forecast</h1>
+                <div class="day-card"></div>
+            </div>
+            <div id="card-container">
+                
+
+            </div>
+        </section>
+    </main>
+
+    <script src="../public/js/index.js"></script>
+</body>
+</html>
