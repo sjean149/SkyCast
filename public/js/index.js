@@ -61,6 +61,15 @@ const forecastAPI = async (lat, lon) => {
       return response.json();
     })
     .then((data) => {
+      let currentDate = data.list[0].dt_txt.split(' ');
+      let currentTemp = data.list[0].main.temp;
+      let currentWind = data.list[0].wind.speed;
+      let currentHumidity = data.list[0].main.humidity;
+
+      document.getElementById('current-date').innerText = `${cityName} (${currentDate[0]})`;
+      document.getElementById('current-temp').textContent += `${currentTemp}`;
+      document.getElementById('current-wind').textContent += `${currentWind}`;
+      document.getElementById('current-humidity').textContent += `${currentHumidity}`;
       
       let date;
       let icon; 
@@ -68,19 +77,19 @@ const forecastAPI = async (lat, lon) => {
       let wind;
       let humidity;
 
-      for (let i = 0; i < 2; i++){
-        date = data.list[i].dt_txt;
+      for (let i = 1; i < 6; i++){
+        date = data.list[i].dt_txt.split(' ');
         icon = data.list[i].weather[0].icon;
         temp = data.list[i].main.temp;
         wind = data.list[i].wind.speed;
         humidity = data.list[i].main.humidity;
+
         console.log(`Date: ${date}, Icon: ${icon}, Temperature: ${temp}°C, Wind Speed: ${wind} m/s, Humidity: ${humidity}%`);
-        const newCard = createCard(date, icon, temp, wind, humidity);
-      }jh
-
-            
-
-
+        
+        //Creates and adds a card for each day into the html
+        const newCard = createCard(date[0], icon, temp, wind, humidity);
+        addCardToPage(newCard);
+      }
     })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);

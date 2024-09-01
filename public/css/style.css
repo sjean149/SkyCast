@@ -53,7 +53,7 @@ html {
   }
 
   .right{
-    width: 50%;
+    width: 70%;
     float: left;
     border: 2px solid seagreen;
   }
@@ -113,14 +113,18 @@ html {
 }
 
 
-
+#card-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
 
 .card {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 16px;
   margin: 16px;
-  width: 20%;
+  max-width: 300px;
   background-color: #323D4F;
   color: white;
   height: 180px;
