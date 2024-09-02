@@ -11,7 +11,7 @@ function runGeoCodingAPI(event) {
   cityName = document.getElementById("city-name").value;
 
   // Construct the URL with the city name
-  let url = `http://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(
+  let url = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(
     cityName
   )}&limit=5&appid=${apiKey}`;
 
@@ -80,6 +80,7 @@ const forecastAPI = async (lat, lon) => {
       }
 
       for (let i = 1; i < 6; i++) {
+        
         date = data.list[i].dt_txt.split(" ");
         icon = data.list[i].weather[0].icon;
         temp = data.list[i].main.temp;
@@ -87,7 +88,7 @@ const forecastAPI = async (lat, lon) => {
         humidity = data.list[i].main.humidity;
 
         console.log(
-          `Date: ${date}, Icon: ${icon}, Temperature: ${temp}°C, Wind Speed: ${wind} m/s, Humidity: ${humidity}%`
+          `Date: ${date[0]}, Icon: ${icon}, Temperature: ${temp}°C, Wind Speed: ${wind} m/s, Humidity: ${humidity}%`
         );
 
         //Creates and adds a card for each day into the html
